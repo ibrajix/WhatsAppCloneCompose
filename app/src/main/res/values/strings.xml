@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">WhatsAppCloneCompose</string>
+
+    <!--Content Description-->
+    <string name="icon">An Icon</string>
+    <string name="whatsapp">WhatsApp</string>
+</resources>
