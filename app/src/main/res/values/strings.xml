@@ -4,4 +4,16 @@
     <!--Content Description-->
     <string name="icon">An Icon</string>
     <string name="whatsapp">WhatsApp</string>
+
+    <!--Tabs-->
+    <string name="chats">Chats</string>
+    <string name="status">Status</string>
+    <string name="calls">Calls</string>
+
+    <string name="permission_needed">Permission Needed</string>
+    <string name="permission_needed_details_screen">This app requires your permission to access your contact</string>
+    <string name="grant_permission">Grant Permission</string>
+    <string name="permission_needed_details">Allow permission to access this app</string>
+    <string name="no">No</string>
+    <string name="allow">Allow</string>
 </resources>

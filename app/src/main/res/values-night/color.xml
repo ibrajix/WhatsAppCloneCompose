@@ -5,4 +5,5 @@
     <color name="from_text">#8A8A8A</color>
     <color name="meta_color">#FFFFFF</color>
     <color name="icon_color">#D4D4D4</color>
+    <color name="icon_color_on_background">#FFFFFFFF</color>
 </resources>

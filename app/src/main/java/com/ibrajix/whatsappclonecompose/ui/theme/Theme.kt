@@ -1,5 +1,6 @@
 package com.ibrajix.whatsappclonecompose.ui.theme
 
+import android.annotation.SuppressLint
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material.Colors
 import androidx.compose.material.MaterialTheme
@@ -22,32 +23,47 @@ get() = if (isLight) SubTextColorLight else SubTextColorDark
 val Colors.topBarTextColor: Color
 get() = if (isLight) TopBarTextColorLight else TopBarTextColorDark
 
-val Colors.BlueCheck: Color
+val Colors.blueCheck: Color
 get() = if (isLight) BlueMain else BlueMain
 
-val Colors.StatusBarColorLight: Color
+val Colors.statusBarColorLight: Color
     get() = TealGreenMainLight
 
-val Colors.StatusBarColorDark: Color
+val Colors.statusBarColorDark: Color
     get() = TealGreenDark
 
+val Colors.tealGreenOpacity: Color
+    get() = TealGreenDarkOpacity
+
+val Colors.tabInActiveColor: Color
+    get() = if (isLight) TopBarTextColorLight else SubTextColorDark
+
+val Colors.tabActiveColor: Color
+    get() = if  (isLight)  TopBarTextColorLight else TealGreenMainLight
+
 //default
+
 private val DarkColorPalette = darkColors(
     primary = TealGreenDark,
     primaryVariant = TealGreenDark,
     secondary = TealGreenMainLight,
     background = BgDark,
-    surface = BgDark
+    surface = BgDark,
+    onBackground = BgLight,
+    onSurface = BgLight
 )
 
 
 
+@SuppressLint("ConflictingOnColor")
 private val LightColorPalette = lightColors(
     primary = TealGreenMainLight,
     primaryVariant = TealGreenMainLight,
     secondary = TealGreenMainLight,
     background = BgLight,
-    surface = BgLight
+    surface = BgLight,
+    onBackground = BgDark,
+    onSurface = BgDark
     /* Other default colors to override
     background = Color.White,
     surface = Color.White,

@@ -2,31 +2,43 @@ package com.ibrajix.whatsappclonecompose.datastore
 
 import android.content.Context
 import androidx.datastore.core.DataStore
-import androidx.datastore.preferences.core.Preferences
-import androidx.datastore.preferences.core.booleanPreferencesKey
-import androidx.datastore.preferences.core.edit
+import androidx.datastore.preferences.core.*
 import androidx.datastore.preferences.preferencesDataStore
+import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.map
+import java.io.IOException
+import javax.inject.Inject
+import javax.inject.Singleton
 
-class Storage(private val context: Context) {
+val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "data_storage")
 
-    companion object {
-        private val Context.dataStore: DataStore<Preferences> by preferencesDataStore("data_store")
-        val NIGHT_MODE_SELECTION = booleanPreferencesKey("night_mode_selection")
+@Singleton
+class Storage @Inject constructor(@ApplicationContext context: Context) : StorageInterface {
+
+    private val dataStore = context.dataStore
+
+    private object PreferenceKeys {
+        val SELECTED_THEME = booleanPreferencesKey("selected_theme")
     }
 
-    //save night mode selection
-    suspend fun saveNightModeSelection(isNightModeSelected: Boolean){
-        context.dataStore.edit {preferences->
-            preferences[NIGHT_MODE_SELECTION] = isNightModeSelected
+    override fun getSelectedTheme() = dataStore.data.catch {
+        if (it is IOException){
+            emit(emptyPreferences())
         }
+        else{
+            throw it
+        }
+    }.map {
+        it[PreferenceKeys.SELECTED_THEME] ?: false
     }
 
-    //get night mode selected
-    val getNightModeSelection : Flow<Boolean?> = context.dataStore.data
-        .map { preferences->
-            preferences[NIGHT_MODE_SELECTION] ?: false
+
+    override suspend fun setSelectedTheme(theme: Boolean) {
+        dataStore.edit {
+            it[PreferenceKeys.SELECTED_THEME] = theme
         }
+    }
 
 }
