@@ -25,7 +25,6 @@ import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 @Destination
 @Composable
 fun ChatScreen(
-    navigator: DestinationsNavigator,
     modifier: Modifier = Modifier){
 
     Column(

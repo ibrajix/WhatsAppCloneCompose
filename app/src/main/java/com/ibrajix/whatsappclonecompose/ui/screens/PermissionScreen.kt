@@ -33,6 +33,7 @@ import com.google.accompanist.permissions.shouldShowRationale
 import com.ibrajix.whatsappclonecompose.BuildConfig
 import com.ibrajix.whatsappclonecompose.R
 import com.ibrajix.whatsappclonecompose.ui.components.ShowCustomAlertDialog
+import com.ibrajix.whatsappclonecompose.ui.components.ShowPermissionHelper
 import com.ibrajix.whatsappclonecompose.ui.screens.destinations.ChatScreenDestination
 import com.ramcosta.composedestinations.annotation.Destination
 import com.ramcosta.composedestinations.navigation.DestinationsNavigator
@@ -43,7 +44,6 @@ import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 fun PermissionScreen(navigator: DestinationsNavigator) {
 
     val permissionState = rememberPermissionState(permission = Manifest.permission.READ_CONTACTS)
-
 
     val lifecycleOwner = LocalLifecycleOwner.current
     DisposableEffect(
@@ -69,77 +69,24 @@ fun PermissionScreen(navigator: DestinationsNavigator) {
         when{
             permissionState.status.isGranted -> {
                 //go to chat screen
+                navigator.popBackStack()
                 navigator.navigate(ChatScreenDestination)
+
             }
             permissionState.status.shouldShowRationale -> {
-
-                //show permission dialog
-                val customDialogState = rememberSaveable { mutableStateOf(true) }
-                ShowCustomAlertDialog(openCustomDialog = customDialogState)
-
-                Column(
-                    modifier = Modifier
-                        .padding(20.dp)
-                        .fillMaxSize(),
-                    horizontalAlignment = Alignment.CenterHorizontally,
-                    verticalArrangement = Arrangement.Center
-                ) {
-                    Text(text = stringResource(id = R.string.permission_needed))
-                    Text(text = stringResource(id = R.string.permission_needed_details_screen))
-                }
-
+                ShowPermissionHelper()
             }
 
             !permissionState.status.isGranted && !permissionState.status.shouldShowRationale -> {
-
                 //permanently denied
-                val customDialogState = rememberSaveable { mutableStateOf(true) }
-                ShowCustomAlertDialog(openCustomDialog = customDialogState)
-
-                Column(
-                    modifier = Modifier
-                        .padding(20.dp)
-                        .fillMaxSize(),
-                    horizontalAlignment = Alignment.CenterHorizontally,
-                    verticalArrangement = Arrangement.Center
-                ) {
-                    Text(
-                        text = stringResource(id = R.string.permission_needed),
-                        textAlign = TextAlign.Center,
-                        style = MaterialTheme.typography.body1
-                    )
-
-                    Text(
-                        modifier = Modifier.padding(start = 20.dp, end = 20.dp),
-                        text = stringResource(id = R.string.permission_needed_details_screen),
-                        textAlign = TextAlign.Center,
-                        style = MaterialTheme.typography.body2
-                    )
-
-                    val context = LocalContext.current
-
-                    Button(
-                        modifier = Modifier.padding(top = 10.dp),
-                        onClick = {
-                            val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS, Uri.fromParts("package", BuildConfig.APPLICATION_ID, null))
-                            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                            startActivity(context, intent, null)
-                        })
-                    {
-                        Text(text = stringResource(id = R.string.grant_permission))
-                    }
-                }
-
+                /*val customDialogState = rememberSaveable { mutableStateOf(true) }
+                ShowCustomAlertDialog(openCustomDialog = customDialogState)*/
+                ShowPermissionHelper()
             }
 
         }
     }
+
+
 }
 
-@Composable
-fun OpenSettings(){
-    val context = LocalContext.current
-    val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS, Uri.fromParts("package", BuildConfig.APPLICATION_ID, null))
-    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-    startActivity(context, intent, null)
-}
