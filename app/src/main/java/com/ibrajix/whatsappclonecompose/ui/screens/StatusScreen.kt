@@ -6,17 +6,15 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import com.ramcosta.composedestinations.annotation.Destination
 
 @Composable
-@Destination
-fun ChatScreen(modifier: Modifier = Modifier) {
+fun StatusScreen(modifier: Modifier = Modifier) {
 
     Column(modifier = modifier
         .fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Text(text = "Chat Screen")
+        Text(text = "Status Screen")
     }
 
 }

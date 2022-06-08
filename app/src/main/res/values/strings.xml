@@ -16,4 +16,7 @@
     <string name="permission_needed_details">Allow permission to access this app</string>
     <string name="no">No</string>
     <string name="allow">Allow</string>
+    <string name="camera">Camera</string>
+    <string name="empty_string"> </string>
+
 </resources>
