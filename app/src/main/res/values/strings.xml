@@ -11,12 +11,12 @@
     <string name="calls">Calls</string>
 
     <string name="permission_needed">Permission Needed</string>
-    <string name="permission_needed_details_screen">This app requires your permission to access your contact</string>
+    <string name="permission_needed_details_screen">This app requires your camera permission</string>
     <string name="grant_permission">Grant Permission</string>
     <string name="permission_needed_details">Allow permission to access this app</string>
     <string name="no">No</string>
     <string name="allow">Allow</string>
     <string name="camera">Camera</string>
-    <string name="empty_string"> </string>
+    <string name="empty_string"></string>
 
 </resources>

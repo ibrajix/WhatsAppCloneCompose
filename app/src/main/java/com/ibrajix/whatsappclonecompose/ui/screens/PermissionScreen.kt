@@ -12,9 +12,7 @@ import androidx.compose.ui.platform.LocalLifecycleOwner
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
 import com.google.accompanist.permissions.ExperimentalPermissionsApi
-import com.google.accompanist.permissions.isGranted
 import com.google.accompanist.permissions.rememberPermissionState
-import com.google.accompanist.permissions.shouldShowRationale
 import com.ibrajix.whatsappclonecompose.ui.components.ShowPermissionHelper
 import com.ibrajix.whatsappclonecompose.ui.screens.destinations.HomeScreenDestination
 import com.ramcosta.composedestinations.annotation.Destination
@@ -25,7 +23,7 @@ import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 @Composable
 fun PermissionScreen(navigator: DestinationsNavigator) {
 
-    val permissionState = rememberPermissionState(permission = Manifest.permission.READ_CONTACTS)
+    val permissionState = rememberPermissionState(permission = Manifest.permission.CAMERA)
 
     val lifecycleOwner = LocalLifecycleOwner.current
     DisposableEffect(
@@ -49,17 +47,17 @@ fun PermissionScreen(navigator: DestinationsNavigator) {
     ) {
 
         when{
-            permissionState.status.isGranted -> {
+            permissionState.hasPermission -> {
                 //go to chat screen
                 navigator.popBackStack()
                 navigator.navigate(HomeScreenDestination)
 
             }
-            permissionState.status.shouldShowRationale -> {
+            permissionState.shouldShowRationale -> {
                 ShowPermissionHelper()
             }
 
-            !permissionState.status.isGranted && !permissionState.status.shouldShowRationale -> {
+            !permissionState.hasPermission && !permissionState.shouldShowRationale -> {
                 //permanently denied
                 /*val customDialogState = rememberSaveable { mutableStateOf(true) }
                 ShowCustomAlertDialog(openCustomDialog = customDialogState)*/

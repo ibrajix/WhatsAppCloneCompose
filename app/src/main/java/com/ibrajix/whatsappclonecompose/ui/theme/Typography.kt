@@ -32,6 +32,12 @@ val WhatsAppCloneComposeTypography = Typography(
         fontSize = 16.sp
     ),
 
+    caption = TextStyle(
+        fontFamily = Helvetica,
+        fontWeight = FontWeight.Bold,
+        fontSize = 13.sp
+    ),
+
     subtitle1 = TextStyle(
         fontFamily = Helvetica,
         fontWeight = FontWeight.Light,
@@ -43,6 +49,8 @@ val WhatsAppCloneComposeTypography = Typography(
         fontWeight = FontWeight.Light,
         fontSize = 10.sp
     ),
+
+
 
 
     /* Other default text styles to override

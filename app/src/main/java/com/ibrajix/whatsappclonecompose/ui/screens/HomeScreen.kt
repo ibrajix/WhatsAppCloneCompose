@@ -26,6 +26,7 @@ import com.ibrajix.whatsappclonecompose.ui.theme.topBarTextColor
 import com.ibrajix.whatsappclonecompose.viewmodel.StorageViewModel
 import com.ramcosta.composedestinations.annotation.Destination
 import kotlinx.coroutines.launch
+import java.util.*
 
 @Destination
 @Composable
@@ -96,23 +97,30 @@ fun TabLayout(
 
     TabRow(
         selectedTabIndex = selectedIndex,
+        divider = { }
     ) {
-        tabs.forEachIndexed{index, tabItem ->  
+
+        tabs.forEachIndexed{index, tabItem ->
             Tab(
                 selected = index == selectedIndex,
                 modifier = modifier.background(MaterialTheme.colors.primary),
                 onClick = {
                 onPageSelected(tabItem)
             },
-                icon = {
-                    tabItem.icon?.let { painterResource(id = it) }?.let { Icon(painter = it, contentDescription = stringResource(id = R.string.icon)) }
+                text =
+                {
+                    if (tabItem == TabItem.Camera) {
+                        Icon(painter = painterResource(id = R.drawable.ic_camera), stringResource(id = R.string.icon)).toString()
+                    }
+
+                    else {
+                        Text(
+                            text = stringResource(id = tabItem.title).uppercase(Locale.ROOT),
+                            style = MaterialTheme.typography.caption,
+                        )
+                    }
+
                 },
-
-                text = {
-                Text(text = stringResource(id = tabItem.title))
-
-            },
-
             )
         }
     }
@@ -124,7 +132,9 @@ fun TabPage(pagerState: PagerState, tabItem: List<TabItem>){
 
     HorizontalPager(
         count = tabs.size,
-        state = pagerState
+        state = pagerState,
+        verticalAlignment = Alignment.Top,
+        modifier = Modifier.fillMaxSize()
     ) {index->
         tabItem[index].screenToLoad()
     }
