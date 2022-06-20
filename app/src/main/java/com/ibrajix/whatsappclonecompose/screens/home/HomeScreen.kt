@@ -1,4 +1,4 @@
-package com.ibrajix.whatsappclonecompose.ui.screens
+package com.ibrajix.whatsappclonecompose.screens.home
 
 import androidx.annotation.StringRes
 import androidx.compose.foundation.background
@@ -21,9 +21,9 @@ import com.google.accompanist.pager.HorizontalPager
 import com.google.accompanist.pager.PagerState
 import com.google.accompanist.pager.rememberPagerState
 import com.ibrajix.whatsappclonecompose.R
-import com.ibrajix.whatsappclonecompose.ui.model.TabItem
-import com.ibrajix.whatsappclonecompose.ui.theme.topBarTextColor
-import com.ibrajix.whatsappclonecompose.viewmodel.StorageViewModel
+import com.ibrajix.whatsappclonecompose.datastore.StorageViewModel
+import com.ibrajix.whatsappclonecompose.screens.home.model.TabItem
+import com.ibrajix.whatsappclonecompose.style.theme.topBarTextColor
 import com.ramcosta.composedestinations.annotation.Destination
 import kotlinx.coroutines.launch
 import java.util.*
@@ -31,7 +31,8 @@ import java.util.*
 @Destination
 @Composable
 fun HomeScreen(
-    modifier: Modifier = Modifier){
+    modifier: Modifier = Modifier)
+{
 
     Column(
         modifier = modifier
@@ -55,7 +56,7 @@ fun TopBar(
     modifier: Modifier = Modifier
 ) {
 
-    val pagerState = rememberPagerState()
+    val pagerState = rememberPagerState(initialPage = 1)
     val coroutineScope = rememberCoroutineScope()
 
     TopAppBar(
@@ -76,7 +77,8 @@ fun TopBar(
     }
 
     //tab layout with horizontal scrolling
-    TabLayout(tabs = tabs, selectedIndex = pagerState.currentPage ,
+    TabLayout(tabs = tabs,
+        selectedIndex = pagerState.currentPage ,
         onPageSelected = { tabItem->
             coroutineScope.launch {
                 pagerState.animateScrollToPage(tabItem.index)
@@ -87,6 +89,7 @@ fun TopBar(
 
 }
 
+
 @Composable
 fun TabLayout(
     modifier: Modifier = Modifier,
@@ -95,6 +98,7 @@ fun TabLayout(
     onPageSelected: ((tabItem: TabItem) -> Unit)
 ) {
 
+ 0
     TabRow(
         selectedTabIndex = selectedIndex,
         divider = { }

@@ -1,4 +1,4 @@
-package com.ibrajix.whatsappclonecompose.ui.theme
+package com.ibrajix.whatsappclonecompose.style.theme
 
 import android.annotation.SuppressLint
 import androidx.compose.foundation.isSystemInDarkTheme
@@ -8,7 +8,6 @@ import androidx.compose.material.darkColors
 import androidx.compose.material.lightColors
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
-import com.google.accompanist.systemuicontroller.rememberSystemUiController
 
 //custom colors
 val Colors.greyColor: Color

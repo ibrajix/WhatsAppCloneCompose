@@ -1,4 +1,4 @@
-package com.ibrajix.whatsappclonecompose.ui.screens
+package com.ibrajix.whatsappclonecompose.screens.status
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -8,13 +8,13 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 
 @Composable
-fun CameraScreen(modifier: Modifier = Modifier){
+fun StatusScreen(modifier: Modifier = Modifier) {
 
     Column(modifier = modifier
         .fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Text(text = "Camera Screen")
+        Text(text = "Status Screen")
     }
-}
 
+}

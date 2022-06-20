@@ -1,4 +1,4 @@
-package com.ibrajix.whatsappclonecompose.ui.components
+package com.ibrajix.whatsappclonecompose.components
 
 import android.content.Intent
 import android.net.Uri

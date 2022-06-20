@@ -1,9 +1,8 @@
-package com.ibrajix.whatsappclonecompose.viewmodel
+package com.ibrajix.whatsappclonecompose.datastore
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
-import com.ibrajix.whatsappclonecompose.datastore.Storage
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject

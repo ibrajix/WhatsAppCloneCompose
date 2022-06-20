@@ -1,4 +1,4 @@
-package com.ibrajix.whatsappclonecompose.ui.screens
+package com.ibrajix.whatsappclonecompose.screens.permission
 
 import android.Manifest
 import androidx.compose.foundation.layout.Arrangement
@@ -13,8 +13,8 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
 import com.google.accompanist.permissions.ExperimentalPermissionsApi
 import com.google.accompanist.permissions.rememberPermissionState
-import com.ibrajix.whatsappclonecompose.ui.components.ShowPermissionHelper
-import com.ibrajix.whatsappclonecompose.ui.screens.destinations.HomeScreenDestination
+import com.ibrajix.whatsappclonecompose.components.ShowPermissionHelper
+import com.ibrajix.whatsappclonecompose.screens.destinations.HomeScreenDestination
 import com.ramcosta.composedestinations.annotation.Destination
 import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 

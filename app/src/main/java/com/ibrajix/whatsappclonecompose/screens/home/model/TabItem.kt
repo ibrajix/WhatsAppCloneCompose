@@ -1,13 +1,13 @@
-package com.ibrajix.whatsappclonecompose.ui.model
+package com.ibrajix.whatsappclonecompose.screens.home.model
 
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.compose.runtime.Composable
 import com.ibrajix.whatsappclonecompose.R
-import com.ibrajix.whatsappclonecompose.ui.screens.CallsScreen
-import com.ibrajix.whatsappclonecompose.ui.screens.CameraScreen
-import com.ibrajix.whatsappclonecompose.ui.screens.ChatScreen
-import com.ibrajix.whatsappclonecompose.ui.screens.StatusScreen
+import com.ibrajix.whatsappclonecompose.screens.call.CallsScreen
+import com.ibrajix.whatsappclonecompose.screens.camera.CameraScreen
+import com.ibrajix.whatsappclonecompose.screens.chat.ChatScreen
+import com.ibrajix.whatsappclonecompose.screens.status.StatusScreen
 
 
 sealed class TabItem(

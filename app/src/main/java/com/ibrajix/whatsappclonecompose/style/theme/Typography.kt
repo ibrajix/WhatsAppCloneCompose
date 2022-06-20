@@ -1,4 +1,4 @@
-package com.ibrajix.whatsappclonecompose.ui.theme
+package com.ibrajix.whatsappclonecompose.style.theme
 
 import androidx.compose.material.Typography
 import androidx.compose.ui.text.TextStyle

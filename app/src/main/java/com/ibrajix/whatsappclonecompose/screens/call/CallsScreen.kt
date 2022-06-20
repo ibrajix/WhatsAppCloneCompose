@@ -1,4 +1,4 @@
-package com.ibrajix.whatsappclonecompose.ui.screens
+package com.ibrajix.whatsappclonecompose.screens.call
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -8,13 +8,13 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 
 @Composable
-fun StatusScreen(modifier: Modifier = Modifier) {
+fun CallsScreen(modifier: Modifier = Modifier) {
 
     Column(modifier = modifier
         .fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Text(text = "Status Screen")
+        Text(text = "Call Screen")
     }
 
 }
