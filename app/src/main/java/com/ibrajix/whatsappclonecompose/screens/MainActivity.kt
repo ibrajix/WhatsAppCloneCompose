@@ -16,6 +16,7 @@ import com.ibrajix.whatsappclonecompose.style.theme.WhatsAppCloneComposeTheme
 import com.ibrajix.whatsappclonecompose.style.theme.statusBarColorDark
 import com.ibrajix.whatsappclonecompose.style.theme.statusBarColorLight
 import com.ramcosta.composedestinations.DestinationsNavHost
+
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -50,7 +51,7 @@ class MainActivity : ComponentActivity() {
                         modifier = Modifier.fillMaxSize(),
                     ) {
                         DestinationsNavHost(navGraph = NavGraphs.root)
-                        //start screen -> PermissionScreen (ui/screens/PermissionScreen)
+                        //start screen -> PermissionScreen (/screens/PermissionScreen)
                     }
                 }
 

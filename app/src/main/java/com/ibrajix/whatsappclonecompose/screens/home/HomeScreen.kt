@@ -98,7 +98,6 @@ fun TabLayout(
     onPageSelected: ((tabItem: TabItem) -> Unit)
 ) {
 
- 0
     TabRow(
         selectedTabIndex = selectedIndex,
         divider = { }

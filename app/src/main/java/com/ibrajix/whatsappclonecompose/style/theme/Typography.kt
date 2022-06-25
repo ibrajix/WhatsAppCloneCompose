@@ -20,6 +20,30 @@ val Helvetica =  FontFamily(
 // Set of Material typography styles to start with
 val WhatsAppCloneComposeTypography = Typography(
 
+    h1 = TextStyle(
+        fontFamily = Helvetica,
+        fontWeight = FontWeight.Bold,
+        fontSize = 20.sp
+    ),
+
+    h2 = TextStyle(
+        fontFamily = Helvetica,
+        fontWeight = FontWeight.Bold,
+        fontSize = 18.sp
+    ),
+
+    h3 = TextStyle(
+        fontFamily = Helvetica,
+        fontWeight = FontWeight.Medium,
+        fontSize = 16.sp
+    ),
+
+    h4 = TextStyle(
+        fontFamily = Helvetica,
+        fontWeight = FontWeight.Bold,
+        fontSize = 14.sp
+    ),
+
     body1 = TextStyle(
         fontFamily = Helvetica,
         fontWeight = FontWeight.Bold,
